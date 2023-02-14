@@ -58,7 +58,9 @@ h1 {
     align-items: center;
 }
 .hover {
-    background-color: rgba(0, 0, 0, 0.3);
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    background-color: rgba(222, 220, 220, 0.3);
+
 }
 footer {
     margin: 20px 0;
