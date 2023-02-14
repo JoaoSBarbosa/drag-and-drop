@@ -12,6 +12,8 @@ document.querySelectorAll('.area').forEach(area =>{
 })
 
 // ------------FUNÇÕES--------
+
+// --Item arrastado
 function dragStart(e){
    e.currentTarget.classList.add('dragging');
 }
@@ -19,13 +21,21 @@ function dragStart(e){
 function dragEnd(e){
   e.currentTarget.classList.remove('dragging');
 }
+
+// -- Area p/ soltar
 function dragOver(e){
    e.preventDefault();
-   e.target.classList.add('hover');
+   e.currentTarget.classList.add('hover');
 }
 function dragLeaver(e){
-   e.target.classList.remove('hover');
+   e.currentTarget.classList.remove('hover');
 }
 function drop(e){
+   e.currentTarget.classList.remove('hover');
+   
+   let dragItem = document.querySelector('.item.dragging')
+   if(e.currentTarget.querySelector('.item') === null){
+      e.currentTarget.appendChild(dragItem);
+   }
    
 }
