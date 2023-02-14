@@ -9,6 +9,9 @@ document.querySelectorAll(".area").forEach((area) => {
   area.addEventListener("drop", drop);
 });
 
+document.querySelector('.neutralArea').addEventListener('dragover', dragOverNeutral);
+document.querySelector('.neutralArea').addEventListener("dragleave", dgleaveNeutral);
+document.querySelector('.neutralArea').addEventListener('drop', dropNeutral);
 // ------------FUNÇÕES--------
 
 // --Item arrastado
@@ -37,4 +40,19 @@ function drop(e) {
     let dragItem = document.querySelector(".item.dragging");
     e.currentTarget.appendChild(dragItem);
   }
+}
+
+// ---------FUNÇÕES AREA NEUTRA
+function dragOverNeutral(e){
+   e.preventDefault();
+   e.currentTarget.classList.add('hover')
+}
+function dgleaveNeutral(e){
+   e.currentTarget.classList.remove('hover')
+}
+function dropNeutral(e){
+   e.currentTarget.classList.remove('hover')
+
+   let neutralArea = document.querySelector('.item.dragging');
+   e.currentTarget.appendChild(neutralArea);
 }
